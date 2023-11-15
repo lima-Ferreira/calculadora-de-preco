@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet" />
+    <title>Calculadora de preço</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="item-header">
+            <a onclick="openPage('tranf','Transferencia')">Preço</a>
+            <a onclick="openPage('calc','calculadora')">Transferência</a>
+        </div>
+
+    </header>
+    <div class="container">
+        <main>
+            <nav>
+                <ul>
+                    <li>Região Norte e Nordeste
+                        <select class="select">
+                            <option value="">9,73%</option>
+                        </select>
+                    </li>
+                    <li>Região Sul e Suldeste
+                        <select class="select">
+                            <option value="">10,70%</option>
+                        </select>
+                    </li>
+                    <li>Região do própio Estado
+                        <select class="select">
+                            <option value="">4,08%</option>
+                        </select>
+                    </li>
+                    <li>Cesta Básica Norte e Nordeste
+                        <select class="select">
+                            <option value="">3,72%</option>
+                        </select>
+                    </li>
+                    <li>Cesta Básica sul e suldeste
+                        <select class="select">
+                            <option value="">4,92%</option>
+                        </select>
+                    </li>
+                    <li>Importação direta cst 100
+                        <select class="select">
+                            <option value="">14,43%</option>
+                        </select>
+                    </li>
+                    <li>Importação mercado interno cst 200
+                        <select class="select">
+                            <option value="">12,46%</option>
+                        </select>
+                    </li>
+
+                </ul>
+            </nav>
+            <section class="section-container">
+                <div class="box">
+                    <div class="item">
+                        <label>compra</label>
+                        <input type="text" class="compra" id="compra" placeholder="0,00" autofocus="true">
+                    </div>
+
+                    <div class="item">
+                        <label>% ipi</label>
+                        <input type="text" class="ipi" id="ipi" placeholder="0,00" autofocus="true">
+                    </div>
+                    <div class="item">
+                        <label>% frete</label>
+                        <input type="text" class="frete" id="frete" placeholder="0,00" autofocus="true">
+                    </div>
+                    <div class="item">
+                        <label>% outros</label>
+                        <input type="text" class="outros" id="outros" placeholder="0,00" autofocus="true">
+                    </div>
+                    <div class="item">
+                        <label>% Ajuste na base</label>
+                        <input type="text" class="base" value="40" autofocus="true" list="base">
+                        <datalist id="base">
+                            <option value="30">%</option>
+                            <option value="40">%</option>
+                        </datalist>
+                    </div>
+                    <div class="item">
+                        <label>% Tributação</label>
+                        <input type="text" class="icms" id="icms" autofocus="true" list="aliquota">
+                        <datalist id="aliquota">
+                            <option value="3.72">%</option>
+                            <option value="4.08">%</option>
+                            <option value="4.92">%</option>
+                            <option value="9.73">%</option>
+                            <option value="10.70">%</option>
+                            <option value="14.43">%</option>
+                            <option value="12.46">%</option>
+                        </datalist>
+
+                    </div>
+                    <div class="item">
+                        <label>% venda a vista</label>
+                        <input type="text" class="preco1" id="preco1" placeholder="0,00" autofocus="true">
+                    </div>
+                    <div class="item">
+                        <label>% venda a prazo</label>
+                        <input type="text" class="preco2" id="preco2" class="preco1" placeholder="0,00"
+                            autofocus="true">
+                    </div>
+                    <div class="item">
+                        <label>% preço fiscal</label>
+                        <input type="text" class="preco4" id="preco4" value="25" autofocus="true">
+                    </div>
+                    <div class="item">
+                        <label>% pis/cofins</label>
+                        <input type="text" class="margem-pis-cofins" id="pis-cofins" value="9.25" autofocus="true">
+                    </div>
+                    <div class="item">
+                        <label>vlr.pis/cofins</label>
+                        <div class="valor-pis-cofins" id="pisCofins"></div>
+                    </div>
+                    <div class="item">
+                        <label>vlr.Custo</label>
+                        <div class="valor-custo" id="vlrCusto"></div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="item">
+                        <p class="label">vlr.ipi</p>
+                        <div class="vlr-ipi" id="vlr-ipi"></div>
+                    </div>
+                    <div class="item">
+                        <p class="label">vlr.frete</p>
+                        <div class="vlr-frete" id="vlr-frete"></div>
+                    </div>
+                    <div class="item">
+                        <p class="label">vlr.outros</p>
+                        <div class="vlr-outros" id="vlr-outros"></div>
+                    </div>
+                    <!-- <div class="item">
+                    <p class="label">compra</p>
+                    <div class="vlr-compra" id="vlr-compra"></div>
+                </div> -->
+                    <div class="item">
+                        <p class="label">icms</p>
+                        <div class="vlr-icms" id="vlr-icms"></div>
+                    </div>
+                    <div class="item">
+                        <p class="label">vlr.fiscal</p>
+                        <div class="vlr-preco4" id="vlr-fiscal"></div>
+                    </div>
+                    <div class="item">
+                        <p class="label">Custo/avista</p>
+                        <div class="custo-avista"></div>
+                    </div>
+                    <div class="item">
+                        <p class="label">Custo/aprazo</p>
+                        <div class="custo-aprazo"></div>
+                    </div>
+                    <div class="item">
+                        <p class="label">Media de Custo</p>
+                        <div class="media-custo" id="numero"></div>
+                    </div>
+                    <div class="item">
+                        <p class="label">vlr.pis/cofins</p>
+                        <div class="vlr-pisCofins"></div>
+                    </div>
+
+                    <div class="item">
+                        <p class="label">Venda Avista</p>
+                        <div class="avista" id="avista"></div>
+                    </div>
+                    <div class="item">
+                        <p class="label">Venda Aprazo</p>
+                        <div class="aprazo" id="aprazo"></div>
+                    </div>
+                </div>
+
+            </section>
+            <section class="section-resultados">
+                <div class="button">
+                    <button class="btn">Calcular</button>
+                </div>
+
+                <div class="button">
+                    <button class="btn" id="btn">Limpar</button>
+                </div>
+
+            </section>
+        </main>
+    </div>
+    <!-- <script type="module" src="./js/script.js"></script> -->
+    <script src="script.js"></script>
+</body>
+
+</html>
